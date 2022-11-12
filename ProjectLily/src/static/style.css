@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+body{
+  font-family: 'Poiret One', cursive;
+  font-size: 24px;
+  font-weight: bolder;
+  color: black;
+  background-color: white;
+  padding-bottom: 2%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+a, a:hover{
+  text-decoration: none;
+  color: black;
+}
+
+.containerTopBanner{
+  font-family: 'Tangerine', cursive;
+  font-size: 64px;
+  color: black;
+  font-weight: bolder;
+  background-color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-bottom: solid;
+  border-bottom-color: black;
+  padding-top: 2%;
+  margin-bottom: 3%;
+}
+
+.containerMainBody{
+  background-color: white;
+}
+
+.sidebar{
+  font-family: 'Tangerine', cursive;
+  font-size: 32px;
+  font-weight: bolder;
+  text-align: left;
+  padding-left: 35%;
+}
+
+.imgStyle{
+  height: 20px;
+  width: 20px;
+}
+
+.text{
+  text-align: center;
+  padding-right: 25%;
+  padding-left: 10%;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: black;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.hover-rotate {
+  overflow: hidden;
+  margin: 8px;
+  min-width: 240px;
+  max-width: 320px;
+  width: 100%;
+}
+
+.hover-rotate img {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.hover-rotate:hover img {
+  transform: scale(1.3) rotate(5deg);
+}
+
+.login {
+  padding-left: 25%;
+  padding-right: 25%;
+  font-size: 32px;
+}
+
+.userinput {
+  border-bottom: solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-weight: bolder;
+  outline: none;
+}
+
+.userinput:hover{
+  font-weight: normal;
+}
+
+.galleryIMG {
+  border: solid;
+  width: 307px;
+  height: 409.6px;
+  margin: 2%;
+  transition: transform .3s;
+}
+
+.galleryIMG:hover {
+  transform: scale(1.2);
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 5%;
+  border: 3px solid #000000;
+  border-radius: 3px;
+  margin-left: 10%;
+  margin-right: 20%;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+
+.modelStyle {
+  font-family: 'Poiret One', cursive;
+  font-weight: bolder;
+}
+
+.viewIMG {
+  border: solid;
+  width: 409.33px;
+  height: 546.13px;
+  margin-top: 5%;
+  margin-left: 25%;
+}
+
+.account-heading-image {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  margin-left: 25%;
+}
+
+.account-heading-image-desc {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  margin-left: 15%;
+}
+
+.image-desc {
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin-left: 15%;
+}

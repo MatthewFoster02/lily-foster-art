@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+        {% if title %}
+            <title>Lily Foster Art - {{ title }}</title>
+        {% else %}
+            <title>Lily Foster Art</title>
+        {% endif %}
+    </head>
+    <body>
+        <div class="containerTopBanner">
+            <div class="row align-items-center">
+                <div class="col">
+                    Lily Foster
+                </div>
+                <div class="col" style="text-align: center;">
+                    {{ title }}
+                </div>
+                <div class="col" style="text-align: right;">
+                    *signature*
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+
+        <div class="containerMainBody">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="sidebar">
+                        <a class="hover-underline-animation" href="{{ url_for('main.index') }}">Home</a><br>
+                        
+                        <a class="hover-underline-animation mt-2" href="{{ url_for('art.gallery') }}">Gallery</a><br>
+
+                        <!--<a class="hover-underline-animation mt-2" href="{{ url_for('art.shop') }}">Shop</a><br>-->
+                        
+                        <!--<a class="hover-underline-animation mt-2" href="{{ url_for('art.cart') }}">Cart</a><br>-->
+
+                        <a class="hover-underline-animation mt-2" href="{{ url_for('users.contact') }}">Contact</a><br>
+                        
+                        <a class="hover-underline-animation mt-2" href="{{ url_for('main.about') }}">About</a><br>
+                    
+                        {% if current_user.is_authenticated %}
+                            <br>
+                            <br>
+                            <br>
+                            <a class="hover-underline-animation" href="{{ url_for('users.account') }}">Account</a><br>
+                            <a class="hover-underline-animation mt-2" href="#" data-toggle="modal" data-target="#signoutModal">Sign out</a><br>
+                        {% else %}
+                            <br>
+                            <br>
+                            <br>
+                            <a class="hover-underline-animation" href="{{ url_for('users.signin') }}">Sign in</a><br>
+                            <a class="hover-underline-animation mt-2" href="{{ url_for('users.signup') }}">Sign up</a><br>
+                        {% endif %}
+                        
+                        <a class="hover-rotate mt-2" href="https://twitter.com/M__Foster" target="_blank"><img class="imgStyle" src="static/twitter.png"/></a>
+                        <a class="hover-rotate mt-2" href="https://www.instagram.com/_lilyjfoster_/" target="_blank"><img class="imgStyle" src="static/instagram.png"/></a>
+                        <a class="hover-rotate mt-2" href="https://twitter.com/M__Foster" target="_blank"><img class="imgStyle" src="static/facebook.png"/></a>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="signoutModal" tabindex="-1" role="dialog" aria-labelledby="signoutModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="signoutModalLabel" style="font-weight: bolder;">Sign Out?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-light mt-2" data-dismiss="modal">Close</button>
+                        <form action="{{ url_for('users.signout') }}">
+                            <input class="btn btn-dark mt-2" type="submit" value="Sign Out">
+                        </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script>
+            function switchPassword(id)
+            {
+                var passwordInput = document.getElementById(id);
+                if(passwordInput.type === "password")
+                {
+                    passwordInput.type = "text";
+                }
+                else
+                {
+                    passwordInput.type = "password";
+                }
+            }
+        </script>
+    </body>
+</html>
