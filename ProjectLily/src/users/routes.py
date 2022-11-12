@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import login_required, current_user, login_user, logout_user
-from src.users.util import send_contact_email, send_password_reset_email
+from src.users.util import send_contact_email, send_password_reset_email, send_email_confirmation, verify_confirmation_token
 from src.models import User
 from src.users.forms import SigninForm, SignupForm, ContactForm, UpdateForm, RequestPasswordResetForm, ResetPasswordForm
 from src import db, bcrypt
@@ -76,17 +76,31 @@ def signup():
     signup_form = SignupForm()
 
     if signup_form.validate_on_submit():
-        hash_password = bcrypt.generate_password_hash(signup_form.password.data).decode('utf-8') # string representation
-        name = signup_form.firstname.data + " " + signup_form.lastname.data
-        user = User(name=name, email=signup_form.email.data, phone=signup_form.phone.data, password=hash_password)
-        db.session.add(user)
-        db.session.commit()
-        flash(f'{signup_form.firstname.data}, your account has been successfully created. You can now Sign In', 'success')
+        send_email_confirmation(signup_form)
+        flash(f'''An email confirmation link has been sent to {signup_form.email.data}, 
+follow the link provided to confirm your email and create your account''', 'info')
         return redirect(url_for('users.signin'))
 
     return render_template('signup.html', title="Sign up", up_form=signup_form)
 
+@users.route('/confirm_signup/<token>')
+def confirm_signup(token):
+    user = verify_confirmation_token(token)
+    if not user:
+        flash('The confirmation link is invalid.', 'danger')
+        return redirect(url_for('users.signup'))
+
+    hash_password = bcrypt.generate_password_hash(user.get('password'))
+    name = user.get('firstname') + " " + user.get('lastname')
+    user_data = User(name=name, email=user.get('email'), phone=user.get('phone'), password=hash_password)
+    db.session.add(user_data)
+    db.session.commit()
+
+    flash(f'{user.get("firstname")}, your account has been successfully created. You can now Sign In', 'success')
+    return redirect(url_for('users.signin'))
+
 @users.route('/signout')
+@login_required
 def signout():
     """
         Sign out route
