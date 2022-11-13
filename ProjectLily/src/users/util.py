@@ -66,3 +66,14 @@ def send_email_confirmation(user_info):
 If you did not attempt to sign up to Lily Foster Art, then you may ignore this email.    
 '''
     mail.send(email_msg)
+
+def send_contact_email_logged_out(name, email, phone, subject, content):
+    email_msg = Message(subject, sender='lilyfosterart.business@gmail.com', recipients=[app_email])
+    email_msg.body = f'''{content}
+
+User Details:
+Name: {name}
+Email: {email}
+Phone: {phone}
+'''
+    mail.send(email_msg)
