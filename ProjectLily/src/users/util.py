@@ -67,12 +67,12 @@ If you did not attempt to sign up to Lily Foster Art, then you may ignore this e
 '''
     mail.send(email_msg)
 
-def send_contact_email_logged_out(email, phone, subject, content):
+def send_contact_email_logged_out(name, email, phone, subject, content):
     email_msg = Message(subject, sender='lilyfosterart.business@gmail.com', recipients=[app_email])
     email_msg.body = f'''{content}
 
 User Details:
-Name: Unkown
+Name: {name}
 Email: {email}
 Phone: {phone}
 '''

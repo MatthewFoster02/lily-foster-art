@@ -22,7 +22,7 @@ def contact():
             return redirect(url_for('main.index'))
     else:
         if form.validate_on_submit():
-            send_contact_email_logged_out(form.email.data, form.phone.data, form.subject.data, form.email_content.data)
+            send_contact_email_logged_out(form.name.data, form.email.data, form.phone.data, form.subject.data, form.email_content.data)
             flash('Email sent! Thanks for getting in touch!', 'success')
             return redirect(url_for('main.index'))
     return render_template('contact.html', title="Contact", form=form)

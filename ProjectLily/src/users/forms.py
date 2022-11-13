@@ -74,6 +74,7 @@ class ContactFormLoggedOut(FlaskForm):
     """
         Contact form when logged out (not signed in)
     """
+    name = StringField('Name', validators=[DataRequired(), Length(max=33)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     phone = IntegerField('Phone Number', validators=[DataRequired()])
     subject = StringField('Subject', validators=[DataRequired(), Length(max=100)])
