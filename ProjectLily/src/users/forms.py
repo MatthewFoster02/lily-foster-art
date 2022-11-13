@@ -70,6 +70,16 @@ class ContactForm(FlaskForm):
     email_content = TextAreaField('Content of Email', validators=[DataRequired()])
     submit = SubmitField('Send')
 
+class ContactFormLoggedOut(FlaskForm):
+    """
+        Contact form when logged out (not signed in)
+    """
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    phone = IntegerField('Phone Number', validators=[DataRequired()])
+    subject = StringField('Subject', validators=[DataRequired(), Length(max=100)])
+    email_content = TextAreaField('Content of Email', validators=[DataRequired()])
+    submit = SubmitField('Send')
+
 class RequestPasswordResetForm(FlaskForm):
     """
         Request a password reset link form

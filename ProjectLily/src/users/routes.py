@@ -1,24 +1,30 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import login_required, current_user, login_user, logout_user
-from src.users.util import send_contact_email, send_password_reset_email, send_email_confirmation, verify_confirmation_token
+from src.users.util import send_contact_email, send_password_reset_email, send_email_confirmation, verify_confirmation_token, send_contact_email_logged_out
 from src.models import User
-from src.users.forms import SigninForm, SignupForm, ContactForm, UpdateForm, RequestPasswordResetForm, ResetPasswordForm
+from src.users.forms import SigninForm, SignupForm, ContactForm, UpdateForm, RequestPasswordResetForm, ResetPasswordForm, ContactFormLoggedOut
 from src import db, bcrypt
 
 
 users = Blueprint('users', __name__)
 
 @users.route("/contact", methods=['GET', 'POST'])
-@login_required
 def contact():
     """
         Contact route
     """
-    form = ContactForm()
-    if form.validate_on_submit():
-        send_contact_email(current_user, form.subject.data, form.email_content.data)
-        flash('Email sent! Thanks for getting in touch!', 'success')
-        return redirect(url_for('main.index'))
+    form = ContactFormLoggedOut()
+    if current_user.is_authenticated:
+        form = ContactForm()
+        if form.validate_on_submit():
+            send_contact_email(current_user, form.subject.data, form.email_content.data)
+            flash('Email sent! Thanks for getting in touch!', 'success')
+            return redirect(url_for('main.index'))
+    else:
+        if form.validate_on_submit():
+            send_contact_email_logged_out(form.email.data, form.phone.data, form.subject.data, form.email_content.data)
+            flash('Email sent! Thanks for getting in touch!', 'success')
+            return redirect(url_for('main.index'))
     return render_template('contact.html', title="Contact", form=form)
 
 @users.route("/account", methods=['GET', 'POST'])
