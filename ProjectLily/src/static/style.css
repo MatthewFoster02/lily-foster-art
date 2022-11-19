@@ -3,7 +3,6 @@
 
 body{
   font-family: 'Poiret One', cursive;
-  font-size: clamp(1rem, 1vw + 0.8rem, 1.5rem);
   font-weight: bolder;
   color: black;
   background-color: white;
@@ -70,6 +69,7 @@ a, a:hover{
 
 .text{
   text-align: center;
+  font-size: clamp(1rem, 1vw + 0.8rem, 1.5rem);
 }
 
 @media (min-width: 800px){
@@ -164,9 +164,9 @@ a, a:hover{
 }
 
 .login {
-  padding-left: 25%;
-  padding-right: 25%;
-  font-size: 32px;
+  margin-inline: clamp(10%, 4vw + 15%, 25%);
+  font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
+  accent-color: black;
 }
 
 .userinput {
@@ -194,8 +194,14 @@ a, a:hover{
 }
 
 .account-heading {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 2vw + 0.75rem, 2.5rem);
   font-weight: bolder;
+  margin-inline: clamp(10%, 4vw + 15%, 25%);
+}
+
+.text-secondary{
+  font-size: clamp(0.5rem, 1vw + 0.25rem, 1rem);
+  margin-inline: clamp(10%, 4vw + 15%, 25%);
 }
 
 .modelStyle {
@@ -205,26 +211,19 @@ a, a:hover{
 
 .viewIMG {
   border: solid;
-  width: 409.33px;
-  height: 546.13px;
-  margin-top: 5%;
-  margin-left: 25%;
-}
-
-.account-heading-image {
-  font-size: 2.5rem;
-  font-weight: bolder;
-  margin-left: 25%;
-}
-
-.account-heading-image-desc {
-  font-size: 2.5rem;
-  font-weight: bolder;
-  margin-left: 15%;
+  width: clamp(80px, 30vw + 50px, 409.33px);
+  height: clamp(107px, 40vw + 80px, 546.13px);
+  margin-inline: clamp(10%, 4vw + 15%, 25%);
 }
 
 .image-desc {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 1vw + 0.8rem, 1.5rem);
   font-weight: normal;
-  margin-left: 15%;
+  margin-inline: clamp(10%, 4vw + 15%, 25%);
+}
+
+.account-img{
+  height: clamp(32px, 15vw + 15px, 320px);
+  width: clamp(32px, 15vw + 15px, 320px);
+  margin-inline: clamp(10%, 4vw + 15%, 25%);
 }
