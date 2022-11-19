@@ -7,6 +7,7 @@ body{
   color: black;
   background-color: white;
   padding-bottom: 2%;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -119,6 +120,14 @@ a, a:hover{
   .galleryIMG:hover {
     transform: scale(1.05);
   }
+
+  .sidebar{
+    display: none !important;
+  }
+
+  .sidebar-col{
+    display: none !important;
+  }
 }
 
 .hover-underline-animation {
@@ -200,7 +209,7 @@ a, a:hover{
 }
 
 .text-secondary{
-  font-size: clamp(0.5rem, 1vw + 0.25rem, 1rem);
+  font-size: clamp(1rem, 1vw + 0.8rem, 1.5rem);
   margin-inline: clamp(10%, 4vw + 15%, 25%);
 }
 

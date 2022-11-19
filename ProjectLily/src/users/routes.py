@@ -131,7 +131,7 @@ def request_password_reset():
         else:
             return redirect(url_for('users.signin'))
     
-    return render_template('request_password_reset.html', title='Reset Password', form=form)
+    return render_template('request_password_reset.html', form=form)
 
 @users.route('/request_password_reset/<token>', methods=['GET', 'POST'])
 def reset_password(token):
@@ -154,4 +154,4 @@ def reset_password(token):
             return redirect(url_for('users.account'))
         else:
             return redirect(url_for('users.signin'))
-    return render_template('reset_password.html', title='Reset Password', form=form)
+    return render_template('reset_password.html', form=form)
