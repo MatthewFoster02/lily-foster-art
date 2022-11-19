@@ -3,7 +3,6 @@
 
 body{
   font-family: 'Poiret One', cursive;
-  font-size: 24px;
   font-weight: bolder;
   color: black;
   background-color: white;
@@ -14,6 +13,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }
 
+h1{
+  font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
+}
+
 a, a:hover{
   text-decoration: none;
   color: black;
@@ -21,7 +24,7 @@ a, a:hover{
 
 .containerTopBanner{
   font-family: 'Tangerine', cursive;
-  font-size: 64px;
+  font-size: clamp(1rem, 4vw + 0.65rem, 4rem);
   color: black;
   font-weight: bolder;
   background-color: white;
@@ -34,26 +37,88 @@ a, a:hover{
 }
 
 .containerMainBody{
-  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.containerMainBody > *:nth-child(1){
+  flex: 0 0 20%;
+  min-width: 10ch;
+}
+
+.containerMainBody > *:nth-child(2){
+  flex: 0 0 80%;
 }
 
 .sidebar{
   font-family: 'Tangerine', cursive;
-  font-size: 32px;
+  font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
   font-weight: bolder;
   text-align: left;
-  padding-left: 35%;
+  padding-left: clamp(10%, 2vw + 15%, 35%);
 }
 
 .imgStyle{
-  height: 20px;
-  width: 20px;
+  height: clamp(0.5rem, 1vw + 0.25rem, 1.25rem);
+  width: clamp(0.5rem, 1vw + 0.25rem, 1.25rem);
+}
+
+.alrt-pad{
+  text-align: left;
 }
 
 .text{
   text-align: center;
-  padding-right: 25%;
-  padding-left: 10%;
+  font-size: clamp(1rem, 1vw + 0.8rem, 1.5rem);
+}
+
+@media (min-width: 800px){
+  .text{
+    margin-right: clamp(12.5%, 2vw + 17.5%, 25%);
+    margin-left: clamp(1%, 2vw + 3%, 5%);
+  }
+
+  .content-section{
+    margin-left: clamp(1%, 0.5vw + 1.5%, 2%);
+    margin-right: clamp(2%, 0.5vw + 3%, 4%);
+  }
+
+  .galleryIMG{
+    margin: 2%;
+  }
+
+  .alrt-pad{
+    margin-right: clamp(12.5%, 2vw + 17.5%, 25%);
+    margin-left: clamp(10%, 2vw + 12.5%, 15%);
+  }
+
+  .galleryIMG:hover {
+    transform: scale(1.15);
+  }
+}
+
+@media (max-width: 799px){
+  .text{
+    margin-inline: clamp(10%, 2vw + 15%, 20%);
+  }
+
+  .content-section{
+    margin-inline: clamp(2%, 1vw + 3.5%, 5%);
+  }
+
+  .galleryIMG{
+    margin-inline: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+
+  .alrt-pad{
+    margin-inline: clamp(10%, 2vw + 15%, 20%);
+  }
+
+  .galleryIMG:hover {
+    transform: scale(1.05);
+  }
 }
 
 .hover-underline-animation {
@@ -82,7 +147,7 @@ a, a:hover{
 
 .hover-rotate {
   overflow: hidden;
-  margin: 8px;
+  margin-inline: clamp(0.125rem, 0.25vw + 0.1rem, 0.5rem);
   min-width: 240px;
   max-width: 320px;
   width: 100%;
@@ -99,9 +164,9 @@ a, a:hover{
 }
 
 .login {
-  padding-left: 25%;
-  padding-right: 25%;
-  font-size: 32px;
+  margin-inline: clamp(10%, 4vw + 15%, 25%);
+  font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
+  accent-color: black;
 }
 
 .userinput {
@@ -119,28 +184,24 @@ a, a:hover{
 
 .galleryIMG {
   border: solid;
-  width: 307px;
-  height: 409.6px;
-  margin: 2%;
+  width: clamp(80px, 20vw + 50px, 307px);
+  height: clamp(107px, 30vw + 80px, 409.6px);
   transition: transform .3s;
-}
-
-.galleryIMG:hover {
-  transform: scale(1.2);
 }
 
 .content-section {
   background: #ffffff;
-  padding: 5%;
-  border: 3px solid #000000;
-  border-radius: 3px;
-  margin-left: 10%;
-  margin-right: 20%;
 }
 
 .account-heading {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 2vw + 0.75rem, 2.5rem);
   font-weight: bolder;
+  margin-inline: clamp(10%, 4vw + 15%, 25%);
+}
+
+.text-secondary{
+  font-size: clamp(0.5rem, 1vw + 0.25rem, 1rem);
+  margin-inline: clamp(10%, 4vw + 15%, 25%);
 }
 
 .modelStyle {
@@ -150,26 +211,19 @@ a, a:hover{
 
 .viewIMG {
   border: solid;
-  width: 409.33px;
-  height: 546.13px;
-  margin-top: 5%;
-  margin-left: 25%;
-}
-
-.account-heading-image {
-  font-size: 2.5rem;
-  font-weight: bolder;
-  margin-left: 25%;
-}
-
-.account-heading-image-desc {
-  font-size: 2.5rem;
-  font-weight: bolder;
-  margin-left: 15%;
+  width: clamp(80px, 30vw + 50px, 409.33px);
+  height: clamp(107px, 40vw + 80px, 546.13px);
+  margin-inline: clamp(10%, 4vw + 15%, 25%);
 }
 
 .image-desc {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 1vw + 0.8rem, 1.5rem);
   font-weight: normal;
-  margin-left: 15%;
+  margin-inline: clamp(10%, 4vw + 15%, 25%);
+}
+
+.account-img{
+  height: clamp(32px, 15vw + 15px, 320px);
+  width: clamp(32px, 15vw + 15px, 320px);
+  margin-inline: clamp(10%, 4vw + 15%, 25%);
 }

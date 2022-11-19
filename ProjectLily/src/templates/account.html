@@ -1,18 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="col-md-10">
+    <div class="col">
         <div class="content-section">
-            <div class="media">
-              <div class="media-body">
-                <h2 class="account-heading">Account Information:</h2>
-                <p class="text-secondary">Name: {{ current_user.name }}</p>
-                <p class="text-secondary">Email: {{ current_user.email }}</p>
-                <p class="text-secondary">Phone: {{ current_user.phone }}</p>
-                <br>
-                <br>
-                <h2 class="account-heading">Update Account Info:</h2>
-              </div>
-            </div>
+            <h2 class="account-heading">Account Information:</h2>
+            <p class="text-secondary">Name: {{ current_user.name }}</p>
+            <p class="text-secondary">Email: {{ current_user.email }}</p>
+            <p class="text-secondary">Phone: {{ current_user.phone }}</p>
+            <br>
+            <br>
+            <h2 class="account-heading">Update Account Info:</h2>
             <!--Forms here-->
             <form method="POST", action="", class="login" id="update">
 

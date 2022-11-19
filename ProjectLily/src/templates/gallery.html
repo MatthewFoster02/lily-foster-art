@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="col-md-10">
+    <div class="col content-section">
         <h1 class="mb-3" style="font-weight: bolder;">There are {{ images.total }} art pieces in this gallery</h1>
         {% for image in images.items %}
             <a href="{{ url_for('art.view_image', image_id=image.id) }}"><img class="galleryIMG" src="static/images/{{ image.filename }}"/></a>
