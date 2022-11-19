@@ -34,7 +34,6 @@ a, a:hover{
 }
 
 .containerMainBody{
-  background-color: white;
   display: flex;
   flex-wrap: wrap;
 }
@@ -61,6 +60,10 @@ a, a:hover{
   width: clamp(0.5rem, 1vw + 0.25rem, 1.25rem);
 }
 
+.alrt-pad{
+  text-align: left;
+}
+
 .text{
   text-align: center;
 }
@@ -70,10 +73,19 @@ a, a:hover{
     margin-right: clamp(12.5%, 2vw + 17.5%, 25%);
     margin-left: clamp(1%, 2vw + 3%, 5%);
   }
+
+  .alrt-pad{
+    margin-right: clamp(12.5%, 2vw + 17.5%, 25%);
+    margin-left: clamp(10%, 2vw + 12.5%, 15%);
+  }
 }
 
 @media (max-width: 799px){
   .text{
+    margin-inline: clamp(10%, 2vw + 15%, 20%);
+  }
+
+  .alrt-pad{
     margin-inline: clamp(10%, 2vw + 15%, 20%);
   }
 }
