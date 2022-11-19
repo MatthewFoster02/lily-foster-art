@@ -21,7 +21,7 @@ a, a:hover{
 
 .containerTopBanner{
   font-family: 'Tangerine', cursive;
-  font-size: 64px;
+  font-size: clamp(1rem, 4vw + 0.65rem, 4rem);
   color: black;
   font-weight: bolder;
   background-color: white;
