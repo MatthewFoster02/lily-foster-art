@@ -14,6 +14,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }
 
+h1{
+  font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
+}
+
 a, a:hover{
   text-decoration: none;
   color: black;
@@ -74,9 +78,22 @@ a, a:hover{
     margin-left: clamp(1%, 2vw + 3%, 5%);
   }
 
+  .content-section{
+    margin-left: clamp(1%, 0.5vw + 1.5%, 2%);
+    margin-right: clamp(2%, 0.5vw + 3%, 4%);
+  }
+
+  .galleryIMG{
+    margin: 2%;
+  }
+
   .alrt-pad{
     margin-right: clamp(12.5%, 2vw + 17.5%, 25%);
     margin-left: clamp(10%, 2vw + 12.5%, 15%);
+  }
+
+  .galleryIMG:hover {
+    transform: scale(1.15);
   }
 }
 
@@ -85,8 +102,22 @@ a, a:hover{
     margin-inline: clamp(10%, 2vw + 15%, 20%);
   }
 
+  .content-section{
+    margin-inline: clamp(2%, 1vw + 3.5%, 5%);
+  }
+
+  .galleryIMG{
+    margin-inline: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+
   .alrt-pad{
     margin-inline: clamp(10%, 2vw + 15%, 20%);
+  }
+
+  .galleryIMG:hover {
+    transform: scale(1.05);
   }
 }
 
@@ -153,23 +184,13 @@ a, a:hover{
 
 .galleryIMG {
   border: solid;
-  width: 307px;
-  height: 409.6px;
-  margin: 2%;
+  width: clamp(80px, 20vw + 50px, 307px);
+  height: clamp(107px, 30vw + 80px, 409.6px);
   transition: transform .3s;
-}
-
-.galleryIMG:hover {
-  transform: scale(1.2);
 }
 
 .content-section {
   background: #ffffff;
-  padding: 5%;
-  border: 3px solid #000000;
-  border-radius: 3px;
-  margin-left: 10%;
-  margin-right: 20%;
 }
 
 .account-heading {
