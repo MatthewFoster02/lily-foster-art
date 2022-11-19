@@ -50,61 +50,59 @@
         </div>
 
         <div class="containerMainBody">
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="sidebar">
-                        <a class="hover-underline-animation" href="{{ url_for('main.index') }}">Home</a><br>
-                        
-                        <a class="hover-underline-animation mt-2" href="{{ url_for('art.gallery') }}">Gallery</a><br>
-
-                        <!--<a class="hover-underline-animation mt-2" href="{{ url_for('art.shop') }}">Shop</a><br>-->
-                        
-                        <!--<a class="hover-underline-animation mt-2" href="{{ url_for('art.cart') }}">Cart</a><br>-->
-
-                        <a class="hover-underline-animation mt-2" href="{{ url_for('users.contact') }}">Contact</a><br>
-                        
-                        <a class="hover-underline-animation mt-2" href="{{ url_for('main.about') }}">About</a><br>
+            <div class="col">
+                <div class="sidebar">
+                    <a class="hover-underline-animation" href="{{ url_for('main.index') }}">Home</a><br>
                     
-                        {% if current_user.is_authenticated %}
-                            <br>
-                            <br>
-                            <br>
-                            <a class="hover-underline-animation" href="{{ url_for('users.account') }}">Account</a><br>
-                            <a class="hover-underline-animation mt-2" href="#" data-toggle="modal" data-target="#signoutModal">Sign out</a><br>
-                        {% else %}
-                            <br>
-                            <br>
-                            <br>
-                            <a class="hover-underline-animation" href="{{ url_for('users.signin') }}">Sign in</a><br>
-                            <a class="hover-underline-animation mt-2" href="{{ url_for('users.signup') }}">Sign up</a><br>
-                        {% endif %}
-                        
-                        <a class="hover-rotate mt-2" href="https://twitter.com/M__Foster" target="_blank"><img class="imgStyle" src="static/twitter.png"/></a>
-                        <a class="hover-rotate mt-2" href="https://www.instagram.com/_lilyjfoster_/" target="_blank"><img class="imgStyle" src="static/instagram.png"/></a>
-                        <a class="hover-rotate mt-2" href="https://twitter.com/M__Foster" target="_blank"><img class="imgStyle" src="static/facebook.png"/></a>
-                    </div>
+                    <a class="hover-underline-animation mt-2" href="{{ url_for('art.gallery') }}">Gallery</a><br>
+
+                    <!--<a class="hover-underline-animation mt-2" href="{{ url_for('art.shop') }}">Shop</a><br>-->
+                    
+                    <!--<a class="hover-underline-animation mt-2" href="{{ url_for('art.cart') }}">Cart</a><br>-->
+
+                    <a class="hover-underline-animation mt-2" href="{{ url_for('users.contact') }}">Contact</a><br>
+                    
+                    <a class="hover-underline-animation mt-2" href="{{ url_for('main.about') }}">About</a><br>
+                
+                    {% if current_user.is_authenticated %}
+                        <br>
+                        <br>
+                        <br>
+                        <a class="hover-underline-animation" href="{{ url_for('users.account') }}">Account</a><br>
+                        <a class="hover-underline-animation mt-2" href="#" data-toggle="modal" data-target="#signoutModal">Sign out</a><br>
+                    {% else %}
+                        <br>
+                        <br>
+                        <br>
+                        <a class="hover-underline-animation" href="{{ url_for('users.signin') }}">Sign in</a><br>
+                        <a class="hover-underline-animation mt-2" href="{{ url_for('users.signup') }}">Sign up</a><br>
+                    {% endif %}
+                    
+                    <a class="hover-rotate mt-2" href="https://twitter.com/M__Foster" target="_blank"><img class="imgStyle" src="static/twitter.png"/></a>
+                    <a class="hover-rotate mt-2" href="https://www.instagram.com/_lilyjfoster_/" target="_blank"><img class="imgStyle" src="static/instagram.png"/></a>
+                    <a class="hover-rotate mt-2" href="https://twitter.com/M__Foster" target="_blank"><img class="imgStyle" src="static/facebook.png"/></a>
                 </div>
-                <!-- Modal -->
-                <div class="modal fade" id="signoutModal" tabindex="-1" role="dialog" aria-labelledby="signoutModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="signoutModalLabel" style="font-weight: bolder;">Sign Out?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-light mt-2" data-dismiss="modal">Close</button>
-                        <form action="{{ url_for('users.signout') }}">
-                            <input class="btn btn-dark mt-2" type="submit" value="Sign Out">
-                        </form>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                {% block content %}{% endblock %}
             </div>
+            <!-- Modal -->
+            <div class="modal fade" id="signoutModal" tabindex="-1" role="dialog" aria-labelledby="signoutModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="signoutModalLabel" style="font-weight: bolder;">Sign Out?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-light mt-2" data-dismiss="modal">Close</button>
+                    <form action="{{ url_for('users.signout') }}">
+                        <input class="btn btn-dark mt-2" type="submit" value="Sign Out">
+                    </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+            {% block content %}{% endblock %}
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
