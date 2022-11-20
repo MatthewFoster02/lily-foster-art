@@ -2,11 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 
 body{
+  background-color: #ffffff;
   font-family: 'Poiret One', cursive;
   font-weight: bolder;
   color: black;
-  background-color: white;
   padding-bottom: 2%;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -58,9 +59,48 @@ a, a:hover{
   padding-left: clamp(10%, 2vw + 15%, 35%);
 }
 
+.sidebar-slide-out{
+  background-color: aliceblue;
+  font-family: 'Tangerine', cursive;
+  font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+  font-weight: bolder;
+  text-align: left;
+  padding-left: 15%;
+  padding-top: 5%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 40%;
+  z-index: 10;
+
+  border: 3px solid;
+
+  align-content: center;
+
+  transform: translateX(-100%);
+  transition: transform ease-out 200ms;
+}
+
+.sidebar-open .sidebar-slide-out{
+    transform: translateX(0);
+}
+
+.sidebar-open{
+  overflow-y: hidden;
+}
+
 .imgStyle{
   height: clamp(0.5rem, 1vw + 0.25rem, 1.25rem);
   width: clamp(0.5rem, 1vw + 0.25rem, 1.25rem);
+}
+
+.imgStyle-bar{
+  height: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+  width: clamp(1rem, 2vw + 0.5rem, 1.5rem);
 }
 
 .alrt-pad{
@@ -69,7 +109,7 @@ a, a:hover{
 
 .text{
   text-align: center;
-  font-size: clamp(1rem, 1vw + 0.8rem, 1.5rem);
+  font-size: clamp(0.75rem, 1vw + 0.5rem, 1.5rem);
 }
 
 @media (min-width: 800px){
@@ -95,6 +135,14 @@ a, a:hover{
   .galleryIMG:hover {
     transform: scale(1.15);
   }
+
+  .menu-container{
+    display: none !important;
+  }
+
+  .sidebar-slide-out{
+    display: none !important;
+  }
 }
 
 @media (max-width: 799px){
@@ -118,6 +166,14 @@ a, a:hover{
 
   .galleryIMG:hover {
     transform: scale(1.05);
+  }
+
+  .sidebar{
+    display: none !important;
+  }
+
+  .sidebar-col{
+    display: none !important;
   }
 }
 
@@ -199,8 +255,14 @@ a, a:hover{
   margin-inline: clamp(10%, 4vw + 15%, 25%);
 }
 
+.account-heading-special {
+  font-family: 'Poiret One', cursive;
+  font-size: clamp(1.5rem, 2vw + 0.75rem, 2.5rem);
+  font-weight: bolder;
+}
+
 .text-secondary{
-  font-size: clamp(0.5rem, 1vw + 0.25rem, 1rem);
+  font-size: clamp(1rem, 1vw + 0.8rem, 1.5rem);
   margin-inline: clamp(10%, 4vw + 15%, 25%);
 }
 
@@ -226,4 +288,28 @@ a, a:hover{
   height: clamp(32px, 15vw + 15px, 320px);
   width: clamp(32px, 15vw + 15px, 320px);
   margin-inline: clamp(10%, 4vw + 15%, 25%);
+}
+
+.btn-style {
+  margin-left: 5%;
+  background: transparent;
+  border: 0;
+}
+
+.btn-style-close {
+  margin-left: 5%;
+  background: transparent;
+  border: 0;
+}
+
+.btn-style:focus {
+  outline: none;
+}
+
+.btn-style-close:focus {
+  outline: none;
+}
+
+.btn-col{
+  flex: 0 1 16px;
 }

@@ -27,7 +27,7 @@ def view_image(image_id):
     """
     image = ArtImages.query.get_or_404(image_id)
     print(f"MAYDAY: {image.filename}")
-    return render_template('viewimage.html', title=image.title, image=image)
+    return render_template('viewimage.html', image=image)
 
 @art.route("/shop")
 def shop():
