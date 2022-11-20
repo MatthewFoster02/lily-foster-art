@@ -34,6 +34,14 @@
             </div>
         </div>
 
+        <div class="menu-container">
+            <button class="btn-style">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+            </button>
+        </div>
+
         <div class="containerMainBody">
             <div class="col"></div>
             <div class="col alrt-pad">
@@ -47,6 +55,46 @@
                     {% endif %}
                 {% endwith %}
             </div>
+        </div>
+
+        <div class="sidebar-slide-out">
+            <div class="menu-container" style="float: right;">
+                <button class="btn-style-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                      </svg>
+                </button>
+            </div>
+            <h1 class="account-heading-special">Sidebar:</h1>
+            <a class="hover-underline-animation" href="{{ url_for('main.index') }}">Home</a><br>
+            
+            <a class="hover-underline-animation mt-2" href="{{ url_for('art.gallery') }}">Gallery</a><br>
+
+            <!--<a class="hover-underline-animation mt-2" href="{{ url_for('art.shop') }}">Shop</a><br>-->
+            
+            <!--<a class="hover-underline-animation mt-2" href="{{ url_for('art.cart') }}">Cart</a><br>-->
+
+            <a class="hover-underline-animation mt-2" href="{{ url_for('users.contact') }}">Contact</a><br>
+            
+            <a class="hover-underline-animation mt-2" href="{{ url_for('main.about') }}">About</a><br>
+        
+            {% if current_user.is_authenticated %}
+                <br>
+                <br>
+                <br>
+                <a class="hover-underline-animation" href="{{ url_for('users.account') }}">Account</a><br>
+                <a class="hover-underline-animation mt-2" href="#" data-toggle="modal" data-target="#signoutModal">Sign out</a><br>
+            {% else %}
+                <br>
+                <br>
+                <br>
+                <a class="hover-underline-animation" href="{{ url_for('users.signin') }}">Sign in</a><br>
+                <a class="hover-underline-animation mt-2" href="{{ url_for('users.signup') }}">Sign up</a><br>
+            {% endif %}
+            
+            <a class="hover-rotate mt-2" href="https://twitter.com/M__Foster" target="_blank"><img class="imgStyle-bar" src="static/twitter.png"/></a>
+            <a class="hover-rotate mt-2" href="https://www.instagram.com/_lilyjfoster_/" target="_blank"><img class="imgStyle-bar" src="static/instagram.png"/></a>
+            <a class="hover-rotate mt-2" href="https://twitter.com/M__Foster" target="_blank"><img class="imgStyle-bar" src="static/facebook.png"/></a>
         </div>
 
         <div class="containerMainBody">
@@ -122,6 +170,21 @@
                     passwordInput.type = "password";
                 }
             }
+        </script>
+        <script>
+            const sidebarOpen = document.querySelector('.btn-style');
+
+            sidebarOpen.addEventListener('click', () => 
+            {
+                document.body.classList.add('sidebar-open');
+            })
+
+            const sidebarClose = document.querySelector('.btn-style-close');
+
+            sidebarClose.addEventListener('click', () => 
+            {
+                document.body.classList.remove('sidebar-open');
+            })
         </script>
     </body>
 </html>
