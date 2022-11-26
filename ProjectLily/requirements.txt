@@ -1,5 +1,5 @@
 Flask==1.1.2
-Flask-WTF==0.15.1
+Flask-WTF==0.15.0
 WTForms==2.3.3
 Flask-Login==0.6.2
 Flask-Mail==0.9.1
