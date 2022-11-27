@@ -65,36 +65,36 @@
                       </svg>
                 </button>
             </div>
-            <h1 class="account-heading-special">Sidebar:</h1>
-            <a class="hover-underline-animation" href="{{ url_for('main.index') }}">Home</a><br>
-            
-            <a class="hover-underline-animation mt-2" href="{{ url_for('art.gallery') }}">Gallery</a><br>
-
-            <!--<a class="hover-underline-animation mt-2" href="{{ url_for('art.shop') }}">Shop</a><br>-->
-            
-            <!--<a class="hover-underline-animation mt-2" href="{{ url_for('art.cart') }}">Cart</a><br>-->
-
-            <a class="hover-underline-animation mt-2" href="{{ url_for('users.contact') }}">Contact</a><br>
-            
-            <a class="hover-underline-animation mt-2" href="{{ url_for('main.about') }}">About</a><br>
-        
-            {% if current_user.is_authenticated %}
-                <br>
-                <br>
-                <br>
-                <a class="hover-underline-animation" href="{{ url_for('users.account') }}">Account</a><br>
-                <a class="hover-underline-animation mt-2" href="#" data-toggle="modal" data-target="#signoutModal">Sign out</a><br>
-            {% else %}
-                <br>
-                <br>
-                <br>
-                <a class="hover-underline-animation" href="{{ url_for('users.signin') }}">Sign in</a><br>
-                <a class="hover-underline-animation mt-2" href="{{ url_for('users.signup') }}">Sign up</a><br>
-            {% endif %}
-            
-            <a class="hover-rotate mt-2" href="https://twitter.com/M__Foster" target="_blank"><img class="imgStyle-bar" src="static/twitter.png"/></a>
-            <a class="hover-rotate mt-2" href="https://www.instagram.com/_lilyjfoster_/" target="_blank"><img class="imgStyle-bar" src="static/instagram.png"/></a>
-            <a class="hover-rotate mt-2" href="https://twitter.com/M__Foster" target="_blank"><img class="imgStyle-bar" src="static/facebook.png"/></a>
+            <div class="sidebar-out-content">
+                <div>
+                    <a class="hover-underline-animation" href="{{ url_for('main.index') }}">Home</a><br>
+                    
+                    <a class="hover-underline-animation mt-2" href="{{ url_for('art.gallery') }}">Gallery</a><br>
+                    <!--<a class="hover-underline-animation mt-2" href="{{ url_for('art.shop') }}">Shop</a><br>-->
+                    
+                    <!--<a class="hover-underline-animation mt-2" href="{{ url_for('art.cart') }}">Cart</a><br>-->
+                    <a class="hover-underline-animation mt-2" href="{{ url_for('users.contact') }}">Contact</a><br>
+                    
+                    <a class="hover-underline-animation mt-2" href="{{ url_for('main.about') }}">About</a><br>
+                    {% if current_user.is_authenticated %}
+                        <br>
+                        <br>
+                        <br>
+                        <a class="hover-underline-animation" href="{{ url_for('users.account') }}">Account</a><br>
+                        <a class="hover-underline-animation mt-2" href="#" data-toggle="modal" data-target="#signoutModal">Sign out</a><br>
+                    {% else %}
+                        <br>
+                        <br>
+                        <br>
+                        <a class="hover-underline-animation" href="{{ url_for('users.signin') }}">Sign in</a><br>
+                        <a class="hover-underline-animation mt-2" href="{{ url_for('users.signup') }}">Sign up</a><br>
+                    {% endif %}
+                    
+                    <a class="hover-rotate mt-2" href="https://twitter.com/M__Foster" target="_blank"><img class="imgStyle-bar" src="static/twitter.png"/></a>
+                    <a class="hover-rotate mt-2" href="https://www.instagram.com/_lilyjfoster_/" target="_blank"><img class="imgStyle-bar" src="static/instagram.png"/></a>
+                    <a class="hover-rotate mt-2" href="https://twitter.com/M__Foster" target="_blank"><img class="imgStyle-bar" src="static/facebook.png"/></a>
+                </div>
+            </div>
         </div>
 
         <div class="containerMainBody">

@@ -4,6 +4,7 @@
 :root{
   --clr-neutral-900: #000;
   --clr-neutral-400: #444;
+  --clr-neutral-300: #888;
   --clr-neutral-100: #FFF;
 
   --ff-base: 'Poiret One', cursive;
@@ -41,7 +42,6 @@ a, a:hover{
   font-size: clamp(1rem, 4vw + 0.65rem, 4rem);
   color: var(--clr-neutral-900);
   font-weight: var(--fw-boldest);
-  background-color: var(--clr-neutral-100);
   margin-left: 5%;
   margin-right: 5%;
   border-bottom: solid;
@@ -75,11 +75,9 @@ a, a:hover{
 .sidebar-slide-out{
   background-color: var(--clr-neutral-100);
   font-family: var(--ff-accent);
-  font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+  font-size: clamp(1.5rem, 4vw + 0.5rem, 2rem);
   font-weight: var(--fw-boldest);
   text-align: left;
-  padding-left: 15%;
-  padding-top: 5%;
   overflow-y: scroll;
   overflow-x: hidden;
 
@@ -87,12 +85,11 @@ a, a:hover{
   top: 0;
   bottom: 0;
   left: 0;
-  right: 40%;
+  right: 55%;
   z-index: 10;
 
   border: 3px solid;
-
-  align-content: center;
+  border-radius: 0 15px 15px 0;
 
   transform: translateX(-100%);
   transition: transform ease-out 200ms;
@@ -103,7 +100,15 @@ a, a:hover{
 }
 
 .sidebar-open{
+  background-color: var(--clr-neutral-300);
+  z-index: 5;
   overflow-y: hidden;
+}
+
+.sidebar-out-content{
+  width: 100%;
+  display: grid;
+  justify-items: center;
 }
 
 .imgStyle{
