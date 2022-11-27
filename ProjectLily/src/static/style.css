@@ -314,17 +314,7 @@ a, a:hover{
   border: 0;
 }
 
-.btn-style-close {
-  margin-left: 5%;
-  background: transparent;
-  border: 0;
-}
-
 .btn-style:focus {
-  outline: none;
-}
-
-.btn-style-close:focus {
   outline: none;
 }
 
