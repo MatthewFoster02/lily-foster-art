@@ -105,6 +105,10 @@ a, a:hover{
   overflow-y: hidden;
 }
 
+.sidebar-open .containerMainBody{
+  content-visibility: hidden;
+}
+
 .sidebar-out-content{
   width: 100%;
   display: grid;
@@ -261,10 +265,6 @@ a, a:hover{
   width: clamp(80px, 20vw + 50px, 307px);
   height: clamp(107px, 30vw + 80px, 409.6px);
   transition: transform .3s;
-}
-
-.content-section {
-  background: var(--clr-neutral-100);
 }
 
 .account-heading {
