@@ -321,3 +321,15 @@ a, a:hover{
 .btn-col{
   flex: 0 1 16px;
 }
+
+/* Scrollbar issues in slide-out sidebar*/
+/* Hide scrollbar for Chrome, Safari and Opera */
+.sidebar-slide-out::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.sidebar-slide-out {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
