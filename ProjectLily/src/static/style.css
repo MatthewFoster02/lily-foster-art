@@ -333,3 +333,17 @@ a, a:hover{
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/* Customising the scrollbar for chrome*/
+::-webkit-scrollbar{
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track{
+  background-color: var(--clr-neutral-100);
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: var(--clr-neutral-900);
+  border-right: 0.25rem solid var(--clr-neutral-100);
+}
