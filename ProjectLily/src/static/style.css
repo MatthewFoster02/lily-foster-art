@@ -336,7 +336,7 @@ a, a:hover{
 
 /* Customising the scrollbar for chrome*/
 ::-webkit-scrollbar{
-  width: 0.5rem;
+  width: 0.75rem;
 }
 
 ::-webkit-scrollbar-track{
@@ -345,5 +345,12 @@ a, a:hover{
 
 ::-webkit-scrollbar-thumb{
   background-color: var(--clr-neutral-900);
-  border-right: 0.25rem solid var(--clr-neutral-100);
+  border: 0.25rem solid var(--clr-neutral-100);
+  border-radius: 100vmax;
+}
+
+/* EDITING THE SELECTION COLOUR */
+::selection {
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-neutral-900);
 }
