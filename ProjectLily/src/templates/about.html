@@ -1,17 +1,25 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="col">
-        <div class="content-section">
+    <div class="content-section">
+        <div class="left-aligned about-size">
             <img class="rounded-circle account-img" src="static/images/profile.jpg">
-            <h2 class="account-heading" style="margin-top: clamp(1%, 5vw + 1%, 5%);">Lily Foster</h2>
-            <p class="text-secondary">16 Years Old - Irish</p>
-            <h3 class="account-heading">Hobbies & Interests:</h3>
-            <p class="text-secondary">
-                Drawing, Performing, Movies<br>
-                Irish Dancing, Harry Potter, Marvel<br>
-            </p>
-            <h3 class="account-heading">Contact:</h3>
-            <p class="text-secondary">Email: lilyfosterart.business@gmail.com, Phone: /enter/</p>
+            <div id="personal-info">
+                <h3 class="account-heading">Lily Foster</h3>
+                <p class="text-secondary">16 Years Old - Irish</p>
+            </div>
+            <div id="hobbies">
+                <h3 class="account-heading">Hobbies & Interests:</h3>
+                <p class="text-secondary">
+                    Drawing, Performing, Movies
+                    Irish Dancing, Harry Potter, Marvel
+                </p>
+            </div>
+            <div id="contact-info">
+                <h3 class="account-heading">Contact:</h3>
+                <div class="text-secondary">
+                    <p>Email: lilyfosterart.business@gmail.com</p> <p>Phone: /enter/</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </div>    
 {% endblock content %}

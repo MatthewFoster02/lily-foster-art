@@ -1,15 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="col">
-        <div>
-            <h2 class="account-heading mb-5">{{ image.title }}</h2>
+    <div class="content-section">
+        <div class="left-aligned">
+            <h2 class="account-heading">{{ image.title }}</h2>
 
             <img class="viewIMG" src="static/images/{{ image.filename }}"/>
 
-            <h2 class="account-heading mt-5">Description:</h2><br>
+            <h2 class="account-heading">Description:</h2>
             <h2 class="image-desc">{{ image.description }}</h2>
-
         </div>
-        
     </div>
 {% endblock content %}
