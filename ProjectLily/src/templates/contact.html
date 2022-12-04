@@ -1,85 +1,83 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="col">
     <div class="content-section">
         <h2 class="account-heading">Send Me an Email:</h2>
         <!--Forms here-->
         <form method="POST", action="", class="login" id="contact">
 
-          {{ form.hidden_tag() }}
+            {{ form.hidden_tag() }}
 
-          {% if not current_user.is_authenticated %}
+            {% if not current_user.is_authenticated %}
             <div>
                 {% if form.name.errors %}
-                    {{ form.name(class="form-control form-control-lg is-invalid mt-5") }}
+                    {{ form.name(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in form.name.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.name(class="userinput mt-3", placeholder=form.name.label.text) }}
+                    {{ form.name(class="userinput", placeholder=form.name.label.text) }}
                 {% endif %}
             </div>
 
             <div>
                 {% if form.email.errors %}
-                    {{ form.email(class="form-control form-control-lg is-invalid mt-5") }}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in form.email.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.email(class="userinput mt-3", placeholder=form.email.label.text) }}
+                    {{ form.email(class="userinput", placeholder=form.email.label.text) }}
                 {% endif %}
             </div>
 
             <div>
                 {% if form.phone.errors %}
-                    {{ form.phone(class="form-control form-control-lg is-invalid mt-5") }}
+                    {{ form.phone(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in form.phone.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.phone(class="userinput mt-3", placeholder=form.phone.label.text) }}
+                    {{ form.phone(class="userinput", placeholder=form.phone.label.text) }}
                 {% endif %}
             </div>
-          {% endif %}
+            {% endif %}
 
-          <div>
-              {% if form.subject.errors %}
-                  {{ form.subject(class="form-control form-control-lg is-invalid mt-5") }}
-                  <div class="invalid-feedback">
-                      {% for error in form.subject.errors %}
-                          <span>{{ error }}</span>
-                      {% endfor %}
-                  </div>
-              {% else %}
-                  {{ form.subject(class="userinput mt-3", placeholder=form.subject.label.text) }}
-              {% endif %}
-          </div>
+            <div>
+                {% if form.subject.errors %}
+                    {{ form.subject(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.subject.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.subject(class="userinput", placeholder=form.subject.label.text) }}
+                {% endif %}
+            </div>
 
-          <div>
-              {% if form.email_content.errors %}
-                  {{ form.email_content(class="form-control form-control-lg is-invalid mt-5") }}
-                  <div class="invalid-feedback">
-                      {% for error in form.email_content.errors %}
-                          <span>{{ error }}</span>
-                      {% endfor %}
-                  </div>
-              {% else %}
-                  {{ form.email_content(class="userinput mt-3", placeholder=form.email_content.label.text) }}
-              {% endif %}
-          </div>
+            <div>
+                {% if form.email_content.errors %}
+                    {{ form.email_content(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email_content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email_content(class="userinput", placeholder=form.email_content.label.text) }}
+                {% endif %}
+            </div>
 
-          <div class="mt-5">
-              {{ form.submit(class="btn btn-outline-dark btn-lg") }}
-          </div>
+            <div>
+                {{ form.submit(class="btn btn-outline-dark btn-lg") }}
+            </div>
 
-      </form>
+        </form>
     </div>
-</div>
 {% endblock content %}

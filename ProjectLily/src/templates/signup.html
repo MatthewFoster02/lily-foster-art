@@ -1,96 +1,96 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="col">
+    <div class="content-section">
         <form method="POST", action="", class="login" id="signup">
 
             {{ up_form.hidden_tag() }}
 
             <div>
                 {% if up_form.firstname.errors %}
-                    {{ up_form.firstname(class="form-control form-control-lg is-invalid mt-5") }}
+                    {{ up_form.firstname(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in up_form.firstname.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ up_form.firstname(class="userinput mt-3", placeholder=up_form.firstname.label.text) }}
+                    {{ up_form.firstname(class="userinput", placeholder=up_form.firstname.label.text) }}
                 {% endif %}
             </div>
 
             <div>
                 {% if up_form.lastname.errors %}
-                    {{ up_form.lastname(class="form-control form-control-lg is-invalid mt-5") }}
+                    {{ up_form.lastname(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in up_form.lastname.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ up_form.lastname(class="userinput mt-3", placeholder=up_form.lastname.label.text) }}
+                    {{ up_form.lastname(class="userinput", placeholder=up_form.lastname.label.text) }}
                 {% endif %}
             </div>
 
             <div>
                 {% if up_form.email.errors %}
-                    {{ up_form.email(class="form-control form-control-lg is-invalid mt-5") }}
+                    {{ up_form.email(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in up_form.email.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ up_form.email(class="userinput mt-3", placeholder=up_form.email.label.text) }}
+                    {{ up_form.email(class="userinput", placeholder=up_form.email.label.text) }}
                 {% endif %}
             </div>
 
             <div>
                 {% if up_form.phone.errors %}
-                    {{ up_form.phone(class="form-control form-control-lg is-invalid mt-5") }}
+                    {{ up_form.phone(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in up_form.phone.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ up_form.phone(class="userinput mt-3", placeholder=up_form.phone.label.text) }}
+                    {{ up_form.phone(class="userinput", placeholder=up_form.phone.label.text) }}
                 {% endif %}
             </div>
 
             <div>
                 {% if up_form.password.errors %}
-                    {{ up_form.password(class="form-control form-control-lg is-invalid mt-5") }}
+                    {{ up_form.password(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in up_form.password.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ up_form.password(class="userinput mt-3", placeholder=up_form.password.label.text, id="signUpPassword") }}
+                    {{ up_form.password(class="userinput", placeholder=up_form.password.label.text, id="signUpPassword") }}
                 {% endif %}
             </div>
 
             <div>
                 {% if up_form.confirm_password.errors %}
-                    {{ up_form.confirm_password(class="form-control form-control-lg is-invalid mt-5") }}
+                    {{ up_form.confirm_password(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in up_form.confirm_password.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ up_form.confirm_password(class="userinput mt-3", placeholder=up_form.confirm_password.label.text, id="signUpPassword2") }}
+                    {{ up_form.confirm_password(class="userinput", placeholder=up_form.confirm_password.label.text, id="signUpPassword2") }}
                 {% endif %}
             </div>
 
-            <div class="mt-3">
+            <div>
                 <small>Show Password</small> <input type="checkbox" onclick="switchPassword('signUpPassword'), switchPassword('signUpPassword2')">
             </div>
 
-            <div class="mt-3">
+            <div>
                 {{ up_form.submit(class="btn btn-outline-dark btn-lg") }}
             </div>
-            <div class="mt-4" style="border-top: 1px solid #000000;">
+            <div style="border-top: 1px solid #000000;">
                 <small class="text-muted" style="font-weight: bolder; font-size: clamp(0.5rem, 1vw + 0.25rem, 1rem);">
                     Already have an Account? - <a class="hover-underline-animation ml-2" href="{{ url_for('users.signin') }}">Sign In Now</a>
                 </small>
