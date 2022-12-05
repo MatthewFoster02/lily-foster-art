@@ -79,6 +79,8 @@ a, a:hover{
   font-weight: var(--fw-boldest);
   text-align: left;
   padding-left: clamp(10%, 2vw + 15%, 35%);
+  top: 3rem;
+  position: sticky;
 }
 
 .sidebar-slide-out{
