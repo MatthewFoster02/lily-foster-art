@@ -118,18 +118,15 @@ a, a:hover{
   transition: transform ease-out 200ms;
 }
 
+.sidebar-open::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 0.75);
+}
+
 .sidebar-open .sidebar-slide-out{
     transform: translateX(0);
-}
-
-.sidebar-open{
-  background-color: var(--clr-neutral-300);
-  z-index: 5;
-  overflow-y: hidden;
-}
-
-.sidebar-open .containerMainBody{
-  content-visibility: hidden;
 }
 
 .sidebar-out-content{
