@@ -207,7 +207,7 @@ a, a:hover{
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  max-width: 17.75rem;
+  max-width: clamp(17.75rem, 4vw + 15rem, 19.1rem);
 }
 
 .userinput {
