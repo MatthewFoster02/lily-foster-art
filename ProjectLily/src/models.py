@@ -50,3 +50,19 @@ class ArtImages(db.Model):
 
     def __repr__(self):
         return f"Image('{self.title}', '{self.description}', '{self.filename}')"
+
+class Products(db.Model):
+    """
+        Table containing all the prints for sale in the shop
+    """
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.String(500), nullable=False)
+    filename = db.Column(db.String(200), unique=True, nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    previous_price = db.Column(db.Float)
+    sale = db.Column(db.Boolean, nullable=False)
+    sale_percent = db.Column(db.Integer)
+
+    def __repr__(self):
+        return f"Product('{self.title}', '{self.price}', '{self.sale}')"
