@@ -10,8 +10,8 @@
             {% if not current_user.is_authenticated %}
             <div>
                 {% if form.name.errors %}
-                    {{ form.name(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
+                    {{ form.name(class="userinput-invalid", placeholder=form.name.label.text) }}
+                    <div class="invalid-tips">
                         {% for error in form.name.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
@@ -23,8 +23,8 @@
 
             <div>
                 {% if form.email.errors %}
-                    {{ form.email(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
+                    {{ form.email(class="userinput-invalid", placeholder=form.email.label.text) }}
+                    <div class="invalid-tips">
                         {% for error in form.email.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
@@ -36,10 +36,10 @@
 
             <div>
                 {% if form.phone.errors %}
-                    {{ form.phone(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
+                    {{ form.phone(class="userinput-invalid", placeholder=form.phone.label.text) }}
+                    <div class="invalid-tips">
                         {% for error in form.phone.errors %}
-                            <span>{{ error }}</span>
+                            <span>Phone number needs to be a number.</span>
                         {% endfor %}
                     </div>
                 {% else %}
@@ -50,8 +50,8 @@
 
             <div>
                 {% if form.subject.errors %}
-                    {{ form.subject(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
+                    {{ form.subject(class="userinput-invalid", placeholder=form.subject.label.text) }}
+                    <div class="invalid-tips">
                         {% for error in form.subject.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
@@ -63,8 +63,8 @@
 
             <div>
                 {% if form.email_content.errors %}
-                    {{ form.email_content(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
+                    {{ form.email_content(class="userinput-invalid", placeholder=form.email_content.label.text) }}
+                    <div class="invalid-tips">
                         {% for error in form.email_content.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}

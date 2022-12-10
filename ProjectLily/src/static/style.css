@@ -7,6 +7,8 @@
   --clr-neutral-300: #888;
   --clr-neutral-100: #FFF;
 
+  --clr-invalid: rgb(226, 39, 39);
+
   --ff-base: 'Poiret One', cursive;
   --ff-accent: 'Tangerine', cursive;
 
@@ -155,6 +157,8 @@ a, a:hover{
   display: inline-block;
   position: relative;
   color: var(--clr-neutral-900);
+  max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 
 .hover-underline-animation:after {
@@ -203,6 +207,7 @@ a, a:hover{
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  max-width: clamp(17.75rem, 4vw + 15rem, 19.1rem);
 }
 
 .userinput {
@@ -212,6 +217,36 @@ a, a:hover{
   border-right: none;
   font-weight: var(--fw-boldest);
   outline: none;
+}
+
+.userinput-invalid {
+  border-bottom: solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-weight: var(--fw-boldest);
+  outline: none;
+  border-color: var(--clr-invalid);
+  color: var(--clr-invalid);
+}
+
+.userinput-invalid::placeholder {
+  color: var(--clr-invalid);
+  font-weight: var(--fw-bold);
+  opacity: 1;
+}
+
+.userinput-invalid:hover::placeholder {
+  color: var(--clr-invalid);
+  font-weight: var(--fw-regular);
+  opacity: 1;
+}
+
+.invalid-tips {
+  color: var(--clr-invalid);
+  font-weight: var(--fw-bold);
+  font-size: 1.2rem;
+  max-width: 100%;
 }
 
 #account-info {

@@ -7,8 +7,8 @@
 
             <div>
                 {% if up_form.firstname.errors %}
-                    {{ up_form.firstname(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
+                    {{ up_form.firstname(class="userinput-invalid", placeholder=up_form.firstname.label.text) }}
+                    <div class="invalid-tips">
                         {% for error in up_form.firstname.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
@@ -20,8 +20,8 @@
 
             <div>
                 {% if up_form.lastname.errors %}
-                    {{ up_form.lastname(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
+                    {{ up_form.lastname(class="userinput-invalid", placeholder=up_form.lastname.label.text) }}
+                    <div class="invalid-tips">
                         {% for error in up_form.lastname.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
@@ -33,8 +33,8 @@
 
             <div>
                 {% if up_form.email.errors %}
-                    {{ up_form.email(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
+                    {{ up_form.email(class="userinput-invalid", placeholder=up_form.email.label.text) }}
+                    <div class="invalid-tips">
                         {% for error in up_form.email.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
@@ -46,10 +46,10 @@
 
             <div>
                 {% if up_form.phone.errors %}
-                    {{ up_form.phone(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
+                    {{ up_form.phone(class="userinput-invalid", placeholder=up_form.phone.label.text) }}
+                    <div class="invalid-tips">
                         {% for error in up_form.phone.errors %}
-                            <span>{{ error }}</span>
+                            <span>Phone number needs to be a number.</span>
                         {% endfor %}
                     </div>
                 {% else %}
@@ -59,8 +59,8 @@
 
             <div>
                 {% if up_form.password.errors %}
-                    {{ up_form.password(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
+                    {{ up_form.password(class="userinput-invalid", placeholder=up_form.password.label.text, id="signUpPassword") }}
+                    <div class="invalid-tips">
                         {% for error in up_form.password.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
@@ -72,8 +72,8 @@
 
             <div>
                 {% if up_form.confirm_password.errors %}
-                    {{ up_form.confirm_password(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
+                    {{ up_form.confirm_password(class="userinput-invalid", placeholder=up_form.confirm_password.label.text, id="signUpPassword2") }}
+                    <div class="invalid-tips">
                         {% for error in up_form.confirm_password.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}

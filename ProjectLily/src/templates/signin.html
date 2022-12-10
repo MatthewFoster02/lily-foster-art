@@ -5,8 +5,8 @@
             {{ in_form.hidden_tag() }}
             <div>
                 {% if in_form.email.errors %}
-                    {{ in_form.email(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
+                    {{ in_form.email(class="userinput-invalid", placeholder=in_form.email.label.text) }}
+                    <div class="invalid-tips">
                         {% for error in in_form.email.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
@@ -17,8 +17,8 @@
             </div>
             <div>
                 {% if in_form.password.errors %}
-                    {{ in_form.password(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
+                    {{ in_form.password(class="userinput-invalid", placeholder=in_form.password.label.text, id="signInPassword") }}
+                    <div class="invalid-tips">
                         {% for error in in_form.password.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
