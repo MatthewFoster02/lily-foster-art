@@ -1,6 +1,50 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="text">
-        Shop...
+    <div class="content-section">
+        <h1 style="font-weight: bolder;">There are {{ products.total }} art pieces in this gallery</h1>
+        <div class="products">
+            {% for product in products.items %}
+                <div class="product-card">
+                    <a href="{{ url_for('art.view_product', product_id=product.id) }}" class="product-link">
+                        <img src="static/products/{{ product.filename }}" alt="" class="product-img"></a>
+                    <div class="product">
+                        <div class="product-info">
+                            {% if product.sale %}
+                                <div class="sale">
+                                    <p class="sale-text">
+                                        SALE - {{ product.sale_percent }}% OFF!
+                                    </p>
+                                </div>
+                            {% endif %}
+                            <p class="product-title">
+                                {{ product.title }}
+                            </p>
+                            <div class="pricing">
+                                <p class="price">{{ product.price }}</p>
+                                {% if product.sale %}
+                                    <p class="previous-price"><s>{{ product.previous_price }}</s></p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <button class="product-add">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="page-buttons">
+        {% for page_num in products.iter_pages(left_edge=1, right_edge=1, left_current=2, right_current=2) %}
+            {% if page_num %}
+                {% if products.page == page_num %}
+                    <a class="btn btn-dark" href="{{ url_for('art.gallery', page=page_num) }}">{{ page_num }}</a>
+                {% else %}
+                    <a class="btn btn-outline-dark" href="{{ url_for('art.gallery', page=page_num) }}">{{ page_num }}</a>
+                {% endif %}
+            {% else %}
+                ...
+            {% endif %}
+        {% endfor %}
     </div>
 {% endblock content %}

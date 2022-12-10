@@ -26,7 +26,6 @@ def view_image(image_id):
         View selected image route
     """
     image = ArtImages.query.get_or_404(image_id)
-    print(f"MAYDAY: {image.filename}")
     return render_template('viewimage.html', image=image)
 
 @art.route("/shop")
@@ -35,3 +34,10 @@ def shop():
         Shop route
     """
     return render_template('shop.html', title="Shop")
+
+@art.route("product<int:product_id>")
+def view_product(product_id):
+    """
+        View selected product
+    """
+
