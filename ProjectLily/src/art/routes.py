@@ -37,9 +37,10 @@ def shop():
     products = Products.query.paginate(page=page, per_page=6)
     return render_template('shop.html', title="Shop", products=products)
 
-@art.route("product<int:product_id>")
+@art.route("/product<int:product_id>")
 def view_product(product_id):
     """
         View selected product
     """
-
+    product = Products.query.get_or_404(product_id)
+    return render_template('viewproduct.html', product=product)

@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <div class="left-aligned product-item">
+            <div class="product-card view-product">
+                <img src="static/products/{{ product.filename }}" alt="" class="product-img">
+                <div class="product">
+                    <div class="product-info">
+                        {% if product.sale %}
+                            <div class="sale">
+                                <p class="sale-text">
+                                    SALE - {{ product.sale_percent }}% OFF!
+                                </p>
+                            </div>
+                        {% endif %}
+                        <p class="product-title">
+                            {{ product.title }}
+                        </p>
+                        <div class="pricing">
+                            <p class="price">€{{ product.price }}</p>
+                            {% if product.sale %}
+                                <p class="previous-price"><s>€{{ product.previous_price }}</s></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <button class="product-add">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <div class="product-description">
+                <h2 class="account-heading">Product Description:</h2>
+                <h2 class="image-desc">{{ product.description }}</h2>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

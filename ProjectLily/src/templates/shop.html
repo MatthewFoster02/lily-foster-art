@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="content-section">
-        <h1 style="font-weight: bolder;">There are {{ products.total }} art pieces in this gallery</h1>
+        <h1 style="font-weight: bolder;">There are {{ products.total }} prints for purchase</h1>
         <div class="products">
             {% for product in products.items %}
                 <div class="product-card">
@@ -20,9 +20,9 @@
                                 {{ product.title }}
                             </p>
                             <div class="pricing">
-                                <p class="price">{{ product.price }}</p>
+                                <p class="price">€{{ product.price }}</p>
                                 {% if product.sale %}
-                                    <p class="previous-price"><s>{{ product.previous_price }}</s></p>
+                                    <p class="previous-price"><s>€{{ product.previous_price }}</s></p>
                                 {% endif %}
                             </div>
                         </div>
@@ -38,9 +38,9 @@
         {% for page_num in products.iter_pages(left_edge=1, right_edge=1, left_current=2, right_current=2) %}
             {% if page_num %}
                 {% if products.page == page_num %}
-                    <a class="btn btn-dark" href="{{ url_for('art.gallery', page=page_num) }}">{{ page_num }}</a>
+                    <a class="btn btn-dark" href="{{ url_for('art.shop', page=page_num) }}">{{ page_num }}</a>
                 {% else %}
-                    <a class="btn btn-outline-dark" href="{{ url_for('art.gallery', page=page_num) }}">{{ page_num }}</a>
+                    <a class="btn btn-outline-dark" href="{{ url_for('art.shop', page=page_num) }}">{{ page_num }}</a>
                 {% endif %}
             {% else %}
                 ...

@@ -369,8 +369,6 @@ a, a:hover{
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
   max-width: 17.5rem;
   overflow: hidden;
   margin-inline: auto;
@@ -409,7 +407,7 @@ a, a:hover{
   padding: 0.5rem 2rem;
   background-color: var(--clr-neutral-900);
   border: none;
-  border-radius: 100vw;
+  border-radius: 0.5rem;
 }
 
 .product-add:hover,
@@ -432,6 +430,7 @@ a, a:hover{
     font-size: 1rem;
     color: var(--clr-neutral-300);
     font-weight: var(--fw-boldest);
+    margin: 0;
 }
 
 .pricing {
@@ -455,6 +454,24 @@ a, a:hover{
     margin: 0;
 }
 
+.product-item {
+  display: grid;
+  grid-template-areas: 
+  "card"
+  "description";
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-product {
+  grid-area: card;
+}
+
+.product-description {
+  grid-area: description;
+}
+
 @media (min-width: 800px){
   .containerMainBody{
     display: grid;
@@ -469,6 +486,10 @@ a, a:hover{
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: auto;
+  }
+
+  .product-item {
+    grid-template-areas: "card description";
   }
 
   .galleryIMG {

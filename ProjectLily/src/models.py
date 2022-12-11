@@ -58,7 +58,7 @@ class Products(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(500), nullable=False)
-    filename = db.Column(db.String(200), unique=True, nullable=False)
+    filename = db.Column(db.String(200), nullable=False)
     price = db.Column(db.Float, nullable=False)
     previous_price = db.Column(db.Float)
     sale = db.Column(db.Boolean, nullable=False)

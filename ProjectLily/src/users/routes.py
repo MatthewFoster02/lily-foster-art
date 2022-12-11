@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import login_required, current_user, login_user, logout_user
 from src.users.util import send_contact_email, send_password_reset_email, send_email_confirmation, verify_confirmation_token, send_contact_email_logged_out
-from src.models import User
+from src.models import User, Products
 from src.users.forms import SigninForm, SignupForm, ContactForm, UpdateForm, RequestPasswordResetForm, ResetPasswordForm, ContactFormLoggedOut
 from src import db, bcrypt
 
@@ -155,3 +155,20 @@ def reset_password(token):
         else:
             return redirect(url_for('users.signin'))
     return render_template('reset_password.html', form=form)
+
+@users.route('/updateDB')
+def updateDB():
+    #db.create_all()
+    # new_user = User(name='Craig Breen', email='cb@test.ie', phone=444235301, password='wrcIsGr8!')
+    # db.session.add(new_user)
+    # db.session.commit()
+    # users = User.query.all()
+    #, previous_price=9.99, sale_percent=10
+
+    # new_product = Products(title='Cliffs of Moher', description='The beautiful Cliffs of Moher, Galway.', filename='test.jpg', price=14.99, sale=True, previous_price=19.99, sale_percent=25)
+    # db.session.add(new_product)
+    # db.session.commit()
+
+    products = Products.query.all()
+    flash(f'Products: {products}', 'success')
+    return render_template('updateDB.html')
