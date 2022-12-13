@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import login_required, current_user, login_user, logout_user
 from src.users.util import send_contact_email, send_password_reset_email, send_email_confirmation, verify_confirmation_token, send_contact_email_logged_out
-from src.models import User, Product
+from src.models import User, Products
 from src.users.forms import SigninForm, SignupForm, ContactForm, UpdateForm, RequestPasswordResetForm, ResetPasswordForm, ContactFormLoggedOut
 from src import db, bcrypt
 
@@ -169,6 +169,6 @@ def updateDB():
     # db.session.add(new_product)
     # db.session.commit()
 
-    products = Product.query.all()
+    products = Products.query.all()
     flash(f'Products: {products}', 'success')
     return render_template('updateDB.html')

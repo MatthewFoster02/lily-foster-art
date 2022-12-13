@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from src.models import ArtImages, Product
+from src.models import ArtImages, Products
 
 
 art = Blueprint('art', __name__)
@@ -34,7 +34,7 @@ def shop():
         Shop route
     """
     page = request.args.get('page', 1, type=int)
-    products = Product.query.paginate(page=page, per_page=6)
+    products = Products.query.paginate(page=page, per_page=6)
     return render_template('shop.html', title="Shop", products=products)
 
 @art.route("/product<int:product_id>")
@@ -42,5 +42,5 @@ def view_product(product_id):
     """
         View selected product
     """
-    product = Product.query.get_or_404(product_id)
+    product = Products.query.get_or_404(product_id)
     return render_template('viewproduct.html', product=product)
