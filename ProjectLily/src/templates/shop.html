@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="content-section">
-        <h1 style="font-weight: bolder;">There are {{ products.total }} prints for purchase</h1>
+        <h1 style="font-weight: bolder;">There are {{ products.total }} prints available for purchase</h1>
         <div class="products">
             {% for product in products.items %}
                 <div class="product-card">

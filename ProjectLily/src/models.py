@@ -17,6 +17,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(100), unique=True, nullable=False)
     phone = db.Column(db.Integer, unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
+    cartItems = db.relationship('CartItem', backref='customer', lazy=True)
 
     def get_reset_token(self, expires_after_sec=300): # Default expires after 300 seconds, 5 minutes.
         """
@@ -51,7 +52,7 @@ class ArtImages(db.Model):
     def __repr__(self):
         return f"Image('{self.title}', '{self.description}', '{self.filename}')"
 
-class Products(db.Model):
+class Product(db.Model):
     """
         Table containing all the prints for sale in the shop
     """
@@ -63,6 +64,15 @@ class Products(db.Model):
     previous_price = db.Column(db.Float)
     sale = db.Column(db.Boolean, nullable=False)
     sale_percent = db.Column(db.Integer)
+    cartItems = db.relationship('CartItem', backref='item', lazy=True)
 
     def __repr__(self):
         return f"Product('{self.title}', '{self.price}', '{self.sale}')"
+
+class CartItem(db.Model):
+    """
+        Table which holds information about what products are in what carts
+    """
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    product_id = db.Column(db.Integer, db.ForeignKey('product.id'), nullable=False)
